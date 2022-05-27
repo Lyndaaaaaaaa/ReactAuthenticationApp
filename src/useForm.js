@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios'
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({
@@ -16,8 +17,15 @@ const useForm = (callback, validate) => {
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const loginUser = {
+      username: values.username,
+      password: values.password,
+    };
+
+    const { data } = await axios.post("http://localhost:8080/auth/login", loginUser);
+    console.log(data);
 
     setErrors(validate(values));
     setIsSubmitting(true);
