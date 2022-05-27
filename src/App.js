@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
 import Form from './Form';
+import Forms from './Forms';
 
 function App() {
-  return <Form />;
+  return <Forms/>;
 }
 
 export default App;
