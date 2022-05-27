@@ -17,11 +17,10 @@ export default function validateInfos(values) {
       errors.password = 'Le mot de passe doit etre minimum 8 caractéres ';
     }
     if (!values.password1) {
-        errors.password1 = 'La confirmation du mot de passe est obligatoire';
-      } else if (values.password1.length < 8) {
-        errors.password1 = 'Le mot de passe doit etre minimum 8 caractéres ';
+        errors.password1 = 'La Confirmation du mot de passe est obligatoire';
+    } else if (values.password1 !== values.password) {
+        errors.password1 = 'Les mots de passe ne sont pas compatibles ';
       }
-  
   
     return errors;
   }
